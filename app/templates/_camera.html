@@ -1,0 +1,29 @@
+    <table class="table table-hover">
+        <tr>
+            <td width="70px">
+                {% if camera.image %}
+                    <a href="{{ url_for('main.camera', camera_name=camera.name) }}">
+                        <img src="{{ url_for('static', filename=camera.image) }}" alt="{{ camera.name }}" width="70" />
+                    </a>
+                {% endif %}
+            </td>
+            <td>
+                {% set camera_link %}
+                    {% if camera.image %}
+                        <span class="user_popup">
+                            <a href="{{ url_for('main.camera', camera_name=camera.name) }}">{{ camera.name }}</a>
+                        </span>
+                    {% else %}
+                        <b>{{ camera.name }}</b>
+                    {% endif %}
+                {% endset %}
+                {{ _('%(camera_name)s', camera_name=camera_link) }}
+                <p>Camera Status: 
+                {% if camera.status %}
+                    {{ camera.status }}</p>
+                {% else %}
+                    No Status</p>
+                {% endif %}
+            </td>
+        </tr>
+    </table>

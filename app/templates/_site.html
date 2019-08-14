@@ -1,0 +1,26 @@
+    <table class="table table-hover">
+        <tr>
+            <td width="70px">
+                {% if site.image %}
+                <a href="{{ url_for('main.site', site_name=site.name) }}">
+                    <img src="{{ url_for('static', filename=site.image) }}" alt="{{ site.name }}" width="70" />
+                </a>
+                {% endif %}
+            </td>
+            <td>
+                {% set site_link %}
+                    <span class="user_popup">
+                        <a href="{{ url_for('main.site', site_name=site.name) }}">{{ site.name }}</a>
+                    </span>
+                {% endset %}
+                {{ _('%(site_name)s', site_name=site_link) }}
+                <br>
+                Latest count: 
+                {% if site.latest_count %}
+                    {{ site.latest_count }}
+                {% else %}
+                    No Record
+                {% endif %}
+            </td>
+        </tr>
+    </table>

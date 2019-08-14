@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>{{ camera.name }}</h1>
+    <a href="{{ url_for('main.site', site_name=camera.site.name) }}">Back to {{ camera.site.name }}</a>
+    <img src="{{ url_for('static', filename=camera.image) }}" alt="{{ camera.name }}" width="1240" />
+{% endblock %}

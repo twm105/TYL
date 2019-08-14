@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <table class="table table-hover">
+        <tr>
+            <td>
+                <h1>{{ user.forename }} {{ user.surname }}</h1>
+                {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+                {% if user.last_seen %}
+                <p>{{ _('Last seen on') }}: {{ moment(user.last_seen).format('LLL') }}</p>
+                {% endif %}
+            </td>
+        </tr>
+        <tr><td>Forename:</td><td>{{ user.forename }}</td></tr>
+        <tr><td>Surname:</td><td>{{ user.surname }}</td></tr>
+        <tr><td>Email Address:</td><td>{{ user.email }}</td></tr>
+        <tr><td><a href="{{ url_for('auth.change_password') }}">{{ _('Change Password') }}</a></td><td></td></tr>
+    </table>
+{% endblock %}
