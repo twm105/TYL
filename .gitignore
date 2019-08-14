@@ -178,9 +178,9 @@ dmypy.json
 .PNG
 
 # Models
-.h5
+*.h5
 
 # office
-.pptx
-.xlsx
-.docx
+*.pptx
+*.xlsx
+*.docx
